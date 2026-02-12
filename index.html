@@ -106,11 +106,12 @@
     .card:hover img { filter: grayscale(20%) contrast(1.3); }
     .card h3 {
       padding: 1.2rem 1rem 0.5rem;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       text-align: center;
+      text-transform: capitalize;
     }
 
-    /* Modal Game Viewer */
+    /* Modal */
     #game-modal {
       position: fixed;
       inset: 0;
@@ -134,10 +135,10 @@
       background: rgba(255,255,255,0.1);
       border: 1px solid var(--accent);
       color: var(--accent);
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -150,15 +151,14 @@
       transform: scale(1.1);
     }
     .game-wrapper {
-      width: 90vw;
+      width: 95vw;
       height: 90vh;
-      max-width: 1600px;
-      max-height: 90vh;
+      max-width: 1800px;
       background: #000;
       border: 2px solid var(--accent);
       overflow: hidden;
       position: relative;
-      box-shadow: 0 0 60px rgba(255,255,255,0.2);
+      box-shadow: 0 0 80px rgba(255,255,255,0.25);
     }
     #game-iframe {
       width: 100%;
@@ -185,15 +185,16 @@
 
   <section class="hero">
     <h1>KRYOXI</h1>
-    <p class="tagline">CORE UNLOCKED • SYSTEMS NOMINAL</p>
+    <p class="tagline">CORE UNLOCKED • ALL NODES ACTIVE</p>
   </section>
 
   <section class="library">
     <h2>GAME NODES</h2>
     <div class="grid">
 
-      <!-- Cards generated from your /projects/ folders -->
-      <div class="card" data-game="1v1space"><img src="https://via.placeholder.com/600x300/111/aaa?text=1v1space" alt=""><h3>1v1.space</h3></div>
+      <!-- All games from your /projects/ folders -->
+      <div class="card" data-game="1"><img src="https://via.placeholder.com/600x300/111/aaa?text=1" alt=""><h3>1</h3></div>
+      <div class="card" data-game="1v1space"><img src="https://via.placeholder.com/600x300/111/aaa?text=1v1space" alt=""><h3>1v1space</h3></div>
       <div class="card" data-game="2048"><img src="https://via.placeholder.com/600x300/111/aaa?text=2048" alt=""><h3>2048</h3></div>
       <div class="card" data-game="9007199254740992"><img src="https://via.placeholder.com/600x300/111/aaa?text=9007199254740992" alt=""><h3>9007199254740992</h3></div>
       <div class="card" data-game="DogeMiner"><img src="https://via.placeholder.com/600x300/111/aaa?text=DogeMiner" alt=""><h3>Doge Miner</h3></div>
@@ -201,21 +202,151 @@
       <div class="card" data-game="achievementunlocked"><img src="https://via.placeholder.com/600x300/111/aaa?text=Achievement+Unlocked" alt=""><h3>Achievement Unlocked</h3></div>
       <div class="card" data-game="adrenalinechallenge"><img src="https://via.placeholder.com/600x300/111/aaa?text=Adrenaline+Challenge" alt=""><h3>Adrenaline Challenge</h3></div>
       <div class="card" data-game="among-us"><img src="https://via.placeholder.com/600x300/111/aaa?text=Among+Us" alt=""><h3>Among Us</h3></div>
-      <!-- ... (shortened for brevity - add all remaining similarly) -->
-      <!-- Full list would be too long here, but pattern is: <div class="card" data-game="FOLDERNAME"><img ...><h3>Pretty Name</h3></div> -->
-      <!-- Examples for last few: -->
+      <div class="card" data-game="avalanche"><img src="https://via.placeholder.com/600x300/111/aaa?text=Avalanche" alt=""><h3>Avalanche</h3></div>
+      <div class="card" data-game="backrooms"><img src="https://via.placeholder.com/600x300/111/aaa?text=Backrooms" alt=""><h3>Backrooms</h3></div>
+      <div class="card" data-game="basketball-stars"><img src="https://via.placeholder.com/600x300/111/aaa?text=Basketball+Stars" alt=""><h3>Basketball Stars</h3></div>
+      <div class="card" data-game="battleforgondor"><img src="https://via.placeholder.com/600x300/111/aaa?text=Battle+For+Gondor" alt=""><h3>Battle For Gondor</h3></div>
+      <div class="card" data-game="bigredbutton"><img src="https://via.placeholder.com/600x300/111/aaa?text=Big+Red+Button" alt=""><h3>Big Red Button</h3></div>
+      <div class="card" data-game="blackknight"><img src="https://via.placeholder.com/600x300/111/aaa?text=Black+Knight" alt=""><h3>Black Knight</h3></div>
+      <div class="card" data-game="bloonstd"><img src="https://via.placeholder.com/600x300/111/aaa?text=Bloons+TD" alt=""><h3>Bloons TD</h3></div>
+      <div class="card" data-game="bloonstd2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Bloons+TD+2" alt=""><h3>Bloons TD 2</h3></div>
+      <div class="card" data-game="bloxors"><img src="https://via.placeholder.com/600x300/111/aaa?text=Bloxors" alt=""><h3>Bloxors</h3></div>
+      <div class="card" data-game="boxhead2play"><img src="https://via.placeholder.com/600x300/111/aaa?text=Boxhead+2+Play" alt=""><h3>Boxhead 2 Play</h3></div>
+      <div class="card" data-game="breakingthebank"><img src="https://via.placeholder.com/600x300/111/aaa?text=Breaking+The+Bank" alt=""><h3>Breaking The Bank</h3></div>
+      <div class="card" data-game="btts"><img src="https://via.placeholder.com/600x300/111/aaa?text=BTTS" alt=""><h3>BTTS</h3></div>
+      <div class="card" data-game="cannon-basketball-4"><img src="https://via.placeholder.com/600x300/111/aaa?text=Cannon+Basketball+4" alt=""><h3>Cannon Basketball 4</h3></div>
+      <div class="card" data-game="canyondefense"><img src="https://via.placeholder.com/600x300/111/aaa?text=Canyon+Defense" alt=""><h3>Canyon Defense</h3></div>
+      <div class="card" data-game="cell-machine"><img src="https://via.placeholder.com/600x300/111/aaa?text=Cell+Machine" alt=""><h3>Cell Machine</h3></div>
+      <div class="card" data-game="championarcher"><img src="https://via.placeholder.com/600x300/111/aaa?text=Champion+Archer" alt=""><h3>Champion Archer</h3></div>
+      <div class="card" data-game="chrome-dino"><img src="https://via.placeholder.com/600x300/111/aaa?text=Chrome+Dino" alt=""><h3>Chrome Dino</h3></div>
+      <div class="card" data-game="circlo"><img src="https://via.placeholder.com/600x300/111/aaa?text=Circlo" alt=""><h3>Circlo</h3></div>
+      <div class="card" data-game="connect3"><img src="https://via.placeholder.com/600x300/111/aaa?text=Connect+3" alt=""><h3>Connect 3</h3></div>
+      <div class="card" data-game="cookie-clicker"><img src="https://via.placeholder.com/600x300/111/aaa?text=Cookie+Clicker" alt=""><h3>Cookie Clicker</h3></div>
+      <div class="card" data-game="craftmine"><img src="https://via.placeholder.com/600x300/111/aaa?text=Craftmine" alt=""><h3>Craftmine</h3></div>
+      <div class="card" data-game="creativekillchamber"><img src="https://via.placeholder.com/600x300/111/aaa?text=Creative+Kill+Chamber" alt=""><h3>Creative Kill Chamber</h3></div>
+      <div class="card" data-game="csgo-clicker"><img src="https://via.placeholder.com/600x300/111/aaa?text=CSGO+Clicker" alt=""><h3>CSGO Clicker</h3></div>
+      <div class="card" data-game="ctr-holiday"><img src="https://via.placeholder.com/600x300/111/aaa?text=CTR+Holiday" alt=""><h3>CTR Holiday</h3></div>
+      <div class="card" data-game="ctr-tr"><img src="https://via.placeholder.com/600x300/111/aaa?text=CTR+TR" alt=""><h3>CTR TR</h3></div>
+      <div class="card" data-game="ctr"><img src="https://via.placeholder.com/600x300/111/aaa?text=CTR" alt=""><h3>CTR</h3></div>
+      <div class="card" data-game="cubefield"><img src="https://via.placeholder.com/600x300/111/aaa?text=Cubefield" alt=""><h3>Cubefield</h3></div>
+      <div class="card" data-game="cupcake2048"><img src="https://via.placeholder.com/600x300/111/aaa?text=Cupcake+2048" alt=""><h3>Cupcake 2048</h3></div>
+      <div class="card" data-game="deal-or-no-deal"><img src="https://via.placeholder.com/600x300/111/aaa?text=Deal+Or+No+Deal" alt=""><h3>Deal Or No Deal</h3></div>
+      <div class="card" data-game="death-run-3d"><img src="https://via.placeholder.com/600x300/111/aaa?text=Death+Run+3D" alt=""><h3>Death Run 3D</h3></div>
+      <div class="card" data-game="defend-the-tank"><img src="https://via.placeholder.com/600x300/111/aaa?text=Defend+The+Tank" alt=""><h3>Defend The Tank</h3></div>
+      <div class="card" data-game="doge2048"><img src="https://via.placeholder.com/600x300/111/aaa?text=Doge+2048" alt=""><h3>Doge 2048</h3></div>
+      <div class="card" data-game="doodle-jump"><img src="https://via.placeholder.com/600x300/111/aaa?text=Doodle+Jump" alt=""><h3>Doodle Jump</h3></div>
+      <div class="card" data-game="doublewires"><img src="https://via.placeholder.com/600x300/111/aaa?text=Double+Wires" alt=""><h3>Double Wires</h3></div>
+      <div class="card" data-game="draw-the-hill"><img src="https://via.placeholder.com/600x300/111/aaa?text=Draw+The+Hill" alt=""><h3>Draw The Hill</h3></div>
+      <div class="card" data-game="ducklife1"><img src="https://via.placeholder.com/600x300/111/aaa?text=Duck+Life+1" alt=""><h3>Duck Life 1</h3></div>
+      <div class="card" data-game="ducklife2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Duck+Life+2" alt=""><h3>Duck Life 2</h3></div>
+      <div class="card" data-game="ducklife3"><img src="https://via.placeholder.com/600x300/111/aaa?text=Duck+Life+3" alt=""><h3>Duck Life 3</h3></div>
+      <div class="card" data-game="edgenotfound"><img src="https://via.placeholder.com/600x300/111/aaa?text=Edge+Not+Found" alt=""><h3>Edge Not Found</h3></div>
+      <div class="card" data-game="elasticman"><img src="https://via.placeholder.com/600x300/111/aaa?text=Elastic+Man" alt=""><h3>Elastic Man</h3></div>
+      <div class="card" data-game="endlesswar3"><img src="https://via.placeholder.com/600x300/111/aaa?text=Endless+War+3" alt=""><h3>Endless War 3</h3></div>
+      <div class="card" data-game="evil-glitch"><img src="https://via.placeholder.com/600x300/111/aaa?text=Evil+Glitch" alt=""><h3>Evil Glitch</h3></div>
+      <div class="card" data-game="exo"><img src="https://via.placeholder.com/600x300/111/aaa?text=Exo" alt=""><h3>Exo</h3></div>
+      <div class="card" data-game="factoryballs"><img src="https://via.placeholder.com/600x300/111/aaa?text=Factory+Balls" alt=""><h3>Factory Balls</h3></div>
+      <div class="card" data-game="fake-virus"><img src="https://via.placeholder.com/600x300/111/aaa?text=Fake+Virus" alt=""><h3>Fake Virus</h3></div>
+      <div class="card" data-game="flappy-2048"><img src="https://via.placeholder.com/600x300/111/aaa?text=Flappy+2048" alt=""><h3>Flappy 2048</h3></div>
+      <div class="card" data-game="flappy-bird"><img src="https://via.placeholder.com/600x300/111/aaa?text=Flappy+Bird" alt=""><h3>Flappy Bird</h3></div>
+      <div class="card" data-game="flashtetris"><img src="https://via.placeholder.com/600x300/111/aaa?text=Flash+Tetris" alt=""><h3>Flash Tetris</h3></div>
+      <div class="card" data-game="game-inside"><img src="https://via.placeholder.com/600x300/111/aaa?text=Game+Inside" alt=""><h3>Game Inside</h3></div>
+      <div class="card" data-game="geodash"><img src="https://via.placeholder.com/600x300/111/aaa?text=Geometry+Dash" alt=""><h3>Geometry Dash</h3></div>
+      <div class="card" data-game="getaway-shootout"><img src="https://via.placeholder.com/600x300/111/aaa?text=Getaway+Shootout" alt=""><h3>Getaway Shootout</h3></div>
+      <div class="card" data-game="gimme-the-airpod"><img src="https://via.placeholder.com/600x300/111/aaa?text=Gimme+The+Airpod" alt=""><h3>Gimme The Airpod</h3></div>
+      <div class="card" data-game="glass-city"><img src="https://via.placeholder.com/600x300/111/aaa?text=Glass+City" alt=""><h3>Glass City</h3></div>
+      <div class="card" data-game="google-snake"><img src="https://via.placeholder.com/600x300/111/aaa?text=Google+Snake" alt=""><h3>Google Snake</h3></div>
+      <div class="card" data-game="grindcraft"><img src="https://via.placeholder.com/600x300/111/aaa?text=Grindcraft" alt=""><h3>Grindcraft</h3></div>
+      <div class="card" data-game="hackertype"><img src="https://via.placeholder.com/600x300/111/aaa?text=Hacker+Typer" alt=""><h3>Hacker Typer</h3></div>
+      <div class="card" data-game="hba"><img src="https://via.placeholder.com/600x300/111/aaa?text=HBA" alt=""><h3>HBA</h3></div>
+      <div class="card" data-game="helicopter"><img src="https://via.placeholder.com/600x300/111/aaa?text=Helicopter" alt=""><h3>Helicopter</h3></div>
+      <div class="card" data-game="hexempire"><img src="https://via.placeholder.com/600x300/111/aaa?text=Hex+Empire" alt=""><h3>Hex Empire</h3></div>
+      <div class="card" data-game="hextris"><img src="https://via.placeholder.com/600x300/111/aaa?text=Hextris" alt=""><h3>Hextris</h3></div>
+      <div class="card" data-game="idle-breakout"><img src="https://via.placeholder.com/600x300/111/aaa?text=Idle+Breakout" alt=""><h3>Idle Breakout</h3></div>
+      <div class="card" data-game="idle-shark"><img src="https://via.placeholder.com/600x300/111/aaa?text=Idle+Shark" alt=""><h3>Idle Shark</h3></div>
+      <div class="card" data-game="impossiblequiz"><img src="https://via.placeholder.com/600x300/111/aaa?text=Impossible+Quiz" alt=""><h3>Impossible Quiz</h3></div>
+      <div class="card" data-game="interactivebuddy"><img src="https://via.placeholder.com/600x300/111/aaa?text=Interactive+Buddy" alt=""><h3>Interactive Buddy</h3></div>
+      <div class="card" data-game="just-one-boss"><img src="https://via.placeholder.com/600x300/111/aaa?text=Just+One+Boss" alt=""><h3>Just One Boss</h3></div>
+      <div class="card" data-game="kittencannon"><img src="https://via.placeholder.com/600x300/111/aaa?text=Kitten+Cannon" alt=""><h3>Kitten Cannon</h3></div>
+      <div class="card" data-game="krunker"><img src="https://via.placeholder.com/600x300/111/aaa?text=Krunker" alt=""><h3>Krunker</h3></div>
+      <div class="card" data-game="learntofly"><img src="https://via.placeholder.com/600x300/111/aaa?text=Learn+To+Fly" alt=""><h3>Learn To Fly</h3></div>
+      <div class="card" data-game="mario"><img src="https://via.placeholder.com/600x300/111/aaa?text=Mario" alt=""><h3>Mario</h3></div>
+      <div class="card" data-game="matrixrampage"><img src="https://via.placeholder.com/600x300/111/aaa?text=Matrix+Rampage" alt=""><h3>Matrix Rampage</h3></div>
+      <div class="card" data-game="meme2048"><img src="https://via.placeholder.com/600x300/111/aaa?text=Meme+2048" alt=""><h3>Meme 2048</h3></div>
+      <div class="card" data-game="minecraft-classic"><img src="https://via.placeholder.com/600x300/111/aaa?text=Minecraft+Classic" alt=""><h3>Minecraft Classic</h3></div>
+      <div class="card" data-game="minecraft"><img src="https://via.placeholder.com/600x300/111/aaa?text=Minecraft" alt=""><h3>Minecraft</h3></div>
+      <div class="card" data-game="minesweeper"><img src="https://via.placeholder.com/600x300/111/aaa?text=Minesweeper" alt=""><h3>Minesweeper</h3></div>
+      <div class="card" data-game="miniputt"><img src="https://via.placeholder.com/600x300/111/aaa?text=Mini+Putt" alt=""><h3>Mini Putt</h3></div>
+      <div class="card" data-game="missiles"><img src="https://via.placeholder.com/600x300/111/aaa?text=Missiles" alt=""><h3>Missiles</h3></div>
+      <div class="card" data-game="motox3m-pool"><img src="https://via.placeholder.com/600x300/111/aaa?text=Moto+X3M+Pool" alt=""><h3>Moto X3M Pool</h3></div>
+      <div class="card" data-game="motox3m-spooky"><img src="https://via.placeholder.com/600x300/111/aaa?text=Moto+X3M+Spooky" alt=""><h3>Moto X3M Spooky</h3></div>
+      <div class="card" data-game="motox3m-winter"><img src="https://via.placeholder.com/600x300/111/aaa?text=Moto+X3M+Winter" alt=""><h3>Moto X3M Winter</h3></div>
+      <div class="card" data-game="motox3m"><img src="https://via.placeholder.com/600x300/111/aaa?text=Moto+X3M" alt=""><h3>Moto X3M</h3></div>
+      <div class="card" data-game="n-gon"><img src="https://via.placeholder.com/600x300/111/aaa?text=N-Gon" alt=""><h3>N-Gon</h3></div>
+      <div class="card" data-game="ns-shaft"><img src="https://via.placeholder.com/600x300/111/aaa?text=NS+Shaft" alt=""><h3>NS Shaft</h3></div>
+      <div class="card" data-game="om-bounce"><img src="https://via.placeholder.com/600x300/111/aaa?text=OM+Bounce" alt=""><h3>OM Bounce</h3></div>
+      <div class="card" data-game="pandemic2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Pandemic+2" alt=""><h3>Pandemic 2</h3></div>
+      <div class="card" data-game="papaspizzaria"><img src="https://via.placeholder.com/600x300/111/aaa?text=Papas+Pizzaria" alt=""><h3>Papa's Pizzaria</h3></div>
+      <div class="card" data-game="paperio2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Paper.io+2" alt=""><h3>Paper.io 2</h3></div>
+      <div class="card" data-game="papery-planes"><img src="https://via.placeholder.com/600x300/111/aaa?text=Papery+Planes" alt=""><h3>Papery Planes</h3></div>
+      <div class="card" data-game="particle-clicker"><img src="https://via.placeholder.com/600x300/111/aaa?text=Particle+Clicker" alt=""><h3>Particle Clicker</h3></div>
+      <div class="card" data-game="polybranch"><img src="https://via.placeholder.com/600x300/111/aaa?text=Polybranch" alt=""><h3>Polybranch</h3></div>
+      <div class="card" data-game="portalflash"><img src="https://via.placeholder.com/600x300/111/aaa?text=Portal+Flash" alt=""><h3>Portal Flash</h3></div>
+      <div class="card" data-game="precision-client"><img src="https://via.placeholder.com/600x300/111/aaa?text=Precision+Client" alt=""><h3>Precision Client</h3></div>
+      <div class="card" data-game="push-the-square"><img src="https://via.placeholder.com/600x300/111/aaa?text=Push+The+Square" alt=""><h3>Push The Square</h3></div>
+      <div class="card" data-game="push-your-luck"><img src="https://via.placeholder.com/600x300/111/aaa?text=Push+Your+Luck" alt=""><h3>Push Your Luck</h3></div>
+      <div class="card" data-game="retro-bowl"><img src="https://via.placeholder.com/600x300/111/aaa?text=Retro+Bowl" alt=""><h3>Retro Bowl</h3></div>
+      <div class="card" data-game="rolly-vortex"><img src="https://via.placeholder.com/600x300/111/aaa?text=Rolly+Vortex" alt=""><h3>Rolly Vortex</h3></div>
+      <div class="card" data-game="rooftop-snipers"><img src="https://via.placeholder.com/600x300/111/aaa?text=Rooftop+Snipers" alt=""><h3>Rooftop Snipers</h3></div>
+      <div class="card" data-game="sand-game"><img src="https://via.placeholder.com/600x300/111/aaa?text=Sand+Game" alt=""><h3>Sand Game</h3></div>
+      <div class="card" data-game="slope"><img src="https://via.placeholder.com/600x300/111/aaa?text=Slope" alt=""><h3>Slope</h3></div>
+      <div class="card" data-game="sm64"><img src="https://via.placeholder.com/600x300/111/aaa?text=SM64" alt=""><h3>SM64</h3></div>
+      <div class="card" data-game="smashkarts"><img src="https://via.placeholder.com/600x300/111/aaa?text=Smash+Karts" alt=""><h3>Smash Karts</h3></div>
+      <div class="card" data-game="smokingbarrels"><img src="https://via.placeholder.com/600x300/111/aaa?text=Smoking+Barrels" alt=""><h3>Smoking Barrels</h3></div>
+      <div class="card" data-game="snowbattle"><img src="https://via.placeholder.com/600x300/111/aaa?text=Snow+Battle" alt=""><h3>Snow Battle</h3></div>
+      <div class="card" data-game="soldier-legend"><img src="https://via.placeholder.com/600x300/111/aaa?text=Soldier+Legend" alt=""><h3>Soldier Legend</h3></div>
+      <div class="card" data-game="solitaire"><img src="https://via.placeholder.com/600x300/111/aaa?text=Solitaire" alt=""><h3>Solitaire</h3></div>
+      <div class="card" data-game="sort-the-court"><img src="https://via.placeholder.com/600x300/111/aaa?text=Sort+The+Court" alt=""><h3>Sort The Court</h3></div>
+      <div class="card" data-game="soundboard"><img src="https://via.placeholder.com/600x300/111/aaa?text=Soundboard" alt=""><h3>Soundboard</h3></div>
+      <div class="card" data-game="stack-bump-3d"><img src="https://via.placeholder.com/600x300/111/aaa?text=Stack+Bump+3D" alt=""><h3>Stack Bump 3D</h3></div>
+      <div class="card" data-game="stack"><img src="https://via.placeholder.com/600x300/111/aaa?text=Stack" alt=""><h3>Stack</h3></div>
+      <div class="card" data-game="stealingthediamond"><img src="https://via.placeholder.com/600x300/111/aaa?text=Stealing+The+Diamond" alt=""><h3>Stealing The Diamond</h3></div>
+      <div class="card" data-game="stickwar"><img src="https://via.placeholder.com/600x300/111/aaa?text=Stick+War" alt=""><h3>Stick War</h3></div>
+      <div class="card" data-game="stormthehouse2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Storm+The+House+2" alt=""><h3>Storm The House 2</h3></div>
+      <div class="card" data-game="superhot"><img src="https://via.placeholder.com/600x300/111/aaa?text=Superhot" alt=""><h3>Superhot</h3></div>
+      <div class="card" data-game="swerve"><img src="https://via.placeholder.com/600x300/111/aaa?text=Swerve" alt=""><h3>Swerve</h3></div>
+      <div class="card" data-game="tacticalassasin2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Tactical+Assassin+2" alt=""><h3>Tactical Assassin 2</h3></div>
+      <div class="card" data-game="tank-trouble-2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Tank+Trouble+2" alt=""><h3>Tank Trouble 2</h3></div>
+      <div class="card" data-game="tanuki-sunset"><img src="https://via.placeholder.com/600x300/111/aaa?text=Tanuki+Sunset" alt=""><h3>Tanuki Sunset</h3></div>
+      <div class="card" data-game="temple-run-2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Temple+Run+2" alt=""><h3>Temple Run 2</h3></div>
+      <div class="card" data-game="the-final-earth"><img src="https://via.placeholder.com/600x300/111/aaa?text=The+Final+Earth" alt=""><h3>The Final Earth</h3></div>
+      <div class="card" data-game="thebattle"><img src="https://via.placeholder.com/600x300/111/aaa?text=The+Battle" alt=""><h3>The Battle</h3></div>
+      <div class="card" data-game="theheist"><img src="https://via.placeholder.com/600x300/111/aaa?text=The+Heist" alt=""><h3>The Heist</h3></div>
+      <div class="card" data-game="there-is-no-game"><img src="https://via.placeholder.com/600x300/111/aaa?text=There+Is+No+Game" alt=""><h3>There Is No Game</h3></div>
+      <div class="card" data-game="thisistheonlylevel"><img src="https://via.placeholder.com/600x300/111/aaa?text=This+Is+The+Only+Level" alt=""><h3>This Is The Only Level</h3></div>
+      <div class="card" data-game="tosstheturtle"><img src="https://via.placeholder.com/600x300/111/aaa?text=Toss+The+Turtle" alt=""><h3>Toss The Turtle</h3></div>
+      <div class="card" data-game="tube-jumpers"><img src="https://via.placeholder.com/600x300/111/aaa?text=Tube+Jumpers" alt=""><h3>Tube Jumpers</h3></div>
+      <div class="card" data-game="tunnel-rush"><img src="https://via.placeholder.com/600x300/111/aaa?text=Tunnel+Rush" alt=""><h3>Tunnel Rush</h3></div>
+      <div class="card" data-game="tv-static"><img src="https://via.placeholder.com/600x300/111/aaa?text=TV+Static" alt=""><h3>TV Static</h3></div>
+      <div class="card" data-game="vex3"><img src="https://via.placeholder.com/600x300/111/aaa?text=Vex+3" alt=""><h3>Vex 3</h3></div>
+      <div class="card" data-game="vex4"><img src="https://via.placeholder.com/600x300/111/aaa?text=Vex+4" alt=""><h3>Vex 4</h3></div>
+      <div class="card" data-game="vex5"><img src="https://via.placeholder.com/600x300/111/aaa?text=Vex+5" alt=""><h3>Vex 5</h3></div>
       <div class="card" data-game="vex6"><img src="https://via.placeholder.com/600x300/111/aaa?text=Vex+6" alt=""><h3>Vex 6</h3></div>
+      <div class="card" data-game="webretro-local"><img src="https://via.placeholder.com/600x300/111/aaa?text=Webretro+Local" alt=""><h3>Webretro Local</h3></div>
+      <div class="card" data-game="wolf3d"><img src="https://via.placeholder.com/600x300/111/aaa?text=Wolf3D" alt=""><h3>Wolf3D</h3></div>
       <div class="card" data-game="wordle"><img src="https://via.placeholder.com/600x300/111/aaa?text=Wordle" alt=""><h3>Wordle</h3></div>
+      <div class="card" data-game="worlds-hardest-game-2"><img src="https://via.placeholder.com/600x300/111/aaa?text=Worlds+Hardest+Game+2" alt=""><h3>World's Hardest Game 2</h3></div>
+      <div class="card" data-game="worlds-hardest-game"><img src="https://via.placeholder.com/600x300/111/aaa?text=Worlds+Hardest+Game" alt=""><h3>World's Hardest Game</h3></div>
       <div class="card" data-game="you-are-bezos"><img src="https://via.placeholder.com/600x300/111/aaa?text=You+Are+Bezos" alt=""><h3>You Are Bezos</h3></div>
 
     </div>
   </section>
 
-  <!-- Game Modal -->
+  <!-- Modal Game Viewer -->
   <div id="game-modal">
     <div class="modal-header">
       <button class="modal-btn" id="close-modal" title="Close">✕</button>
-      <button class="modal-btn" id="toggle-fullscreen" title="Fullscreen">⛶</button>
+      <button class="modal-btn" id="toggle-fullscreen" title="Toggle Fullscreen">⛶</button>
     </div>
     <div class="game-wrapper">
       <iframe id="game-iframe" allowfullscreen allow="fullscreen"></iframe>
@@ -229,60 +360,82 @@
   <canvas id="particles"></canvas>
 
   <script>
-    // Particles (keep as-is)
+    // Particle background
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let particlesArray = [];
-    class Particle { /* same as before */ }
-    function initParticles() { /* same */ }
-    function animateParticles() { /* same */ }
-    window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); });
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.speedX = Math.random() * 0.4 - 0.2;
+        this.speedY = Math.random() * 0.4 - 0.2;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < 100; i++) particlesArray.push(new Particle());
+    }
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateParticles);
+    }
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initParticles();
+    });
     initParticles();
     animateParticles();
 
-    // Modal logic
+    // Modal controls
     const modal = document.getElementById('game-modal');
     const iframe = document.getElementById('game-iframe');
     const closeBtn = document.getElementById('close-modal');
     const fsBtn = document.getElementById('toggle-fullscreen');
     const wrapper = document.querySelector('.game-wrapper');
 
-    // Open modal on card click
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
-        const gameFolder = card.getAttribute('data-game');
-        iframe.src = `projects/${gameFolder}/`;  // Loads index.html inside folder
+        const folder = card.getAttribute('data-game');
+        iframe.src = `projects/${folder}/`;
         modal.classList.add('active');
         document.body.classList.add('modal-open');
       });
     });
 
-    // Close modal
     closeBtn.addEventListener('click', () => {
       modal.classList.remove('active');
       document.body.classList.remove('modal-open');
-      iframe.src = '';  // Unload game
+      iframe.src = '';
     });
 
-    // Fullscreen toggle
     fsBtn.addEventListener('click', () => {
       if (!document.fullscreenElement) {
-        wrapper.requestFullscreen().catch(err => console.log(err));
-        fsBtn.innerHTML = '⛶';  // Change icon if you want (or use text "Exit FS")
+        wrapper.requestFullscreen().catch(e => console.log(e));
       } else {
         document.exitFullscreen();
       }
     });
 
-    // Optional: Update button icon when fullscreen changes
     document.addEventListener('fullscreenchange', () => {
-      if (document.fullscreenElement) {
-        fsBtn.innerHTML = '❐';  // Compress icon example
-      } else {
-        fsBtn.innerHTML = '⛶';
-      }
+      fsBtn.innerHTML = document.fullscreenElement ? '❐' : '⛶';
     });
   </script>
 </body>
