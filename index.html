@@ -67,6 +67,51 @@
     @keyframes glow { from { text-shadow: 0 0 30px var(--accent); } to { text-shadow: 0 0 80px #fff, 0 0 120px var(--accent); } }
     .tagline { font-size: 1.6rem; color: var(--gray); margin: 1.5rem 0 3rem; letter-spacing: 4px; }
 
+    /* DuckDuckGo Search Section */
+    .search-section {
+      padding: 80px 5%;
+      text-align: center;
+      background: var(--darkgray);
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+    .search-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    .search-section p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+    #ddg-search-form {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+    #ddg-query {
+      flex: 1;
+      padding: 18px;
+      font-size: 1.3rem;
+      background: #000;
+      border: 2px solid var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      outline: none;
+    }
+    #ddg-search-form button {
+      padding: 18px 35px;
+      font-size: 1.3rem;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     .library {
       padding: 100px 5% 150px;
     }
@@ -111,8 +156,8 @@
       text-transform: capitalize;
     }
 
-    /* Modal Game Viewer */
-    #game-modal {
+    /* Modal (shared styles for game & search) */
+    .modal {
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.98);
@@ -122,7 +167,7 @@
       justify-content: center;
       flex-direction: column;
     }
-    #game-modal.active { display: flex; }
+    .modal.active { display: flex; }
     .modal-header {
       position: absolute;
       top: 15px;
@@ -150,7 +195,7 @@
       color: #000;
       transform: scale(1.1);
     }
-    .game-wrapper {
+    .modal-wrapper {
       width: 95vw;
       height: 90vh;
       max-width: 1800px;
@@ -160,7 +205,7 @@
       position: relative;
       box-shadow: 0 0 80px rgba(255,255,255,0.25);
     }
-    #game-iframe {
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -186,6 +231,16 @@
   <section class="hero">
     <h1>KRYOXI</h1>
     <p class="tagline">CORE UNLOCKED • ALL NODES ACTIVE</p>
+  </section>
+
+  <!-- DuckDuckGo Proxy Search -->
+  <section class="search-section">
+    <h2>QUICK PROXY SEARCH</h2>
+    <p>Type anything → instant DuckDuckGo results (fast & private)</p>
+    <form id="ddg-search-form">
+      <input type="text" id="ddg-query" placeholder="Search DuckDuckGo..." autocomplete="off">
+      <button type="submit">SEARCH</button>
+    </form>
   </section>
 
   <section class="library">
@@ -921,13 +976,23 @@
   </section>
 
   <!-- Game Modal -->
-  <div id="game-modal">
+  <div id="game-modal" class="modal">
     <div class="modal-header">
       <button class="modal-btn" id="close-modal" title="Close">✕</button>
       <button class="modal-btn" id="toggle-fullscreen" title="Toggle Fullscreen">⛶</button>
     </div>
-    <div class="game-wrapper">
+    <div class="modal-wrapper">
       <iframe id="game-iframe" allowfullscreen allow="fullscreen"></iframe>
+    </div>
+  </div>
+
+  <!-- DuckDuckGo Search Modal -->
+  <div id="ddg-modal" class="modal">
+    <div class="modal-header">
+      <button class="modal-btn" id="close-ddg" title="Close">✕</button>
+    </div>
+    <div class="modal-wrapper">
+      <iframe id="ddg-iframe" allowfullscreen allow="fullscreen"></iframe>
     </div>
   </div>
 
@@ -938,7 +1003,7 @@
   <canvas id="particles"></canvas>
 
   <script>
-    // Particle background
+    // Particles background
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -982,38 +1047,59 @@
     initParticles();
     animateParticles();
 
-    // Modal logic
-    const modal = document.getElementById('game-modal');
-    const iframe = document.getElementById('game-iframe');
-    const closeBtn = document.getElementById('close-modal');
-    const fsBtn = document.getElementById('toggle-fullscreen');
-    const wrapper = document.querySelector('.game-wrapper');
+    // Game Modal Logic
+    const gameModal = document.getElementById('game-modal');
+    const gameIframe = document.getElementById('game-iframe');
+    const closeGame = document.getElementById('close-modal');
+    const fsGameBtn = document.getElementById('toggle-fullscreen');
+    const gameWrapper = gameModal.querySelector('.modal-wrapper');
 
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         const folder = card.getAttribute('data-game');
-        iframe.src = `projects/${folder}/`;
-        modal.classList.add('active');
+        gameIframe.src = `projects/${folder}/`;
+        gameModal.classList.add('active');
         document.body.classList.add('modal-open');
       });
     });
 
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
+    closeGame.addEventListener('click', () => {
+      gameModal.classList.remove('active');
       document.body.classList.remove('modal-open');
-      iframe.src = '';
+      gameIframe.src = '';
     });
 
-    fsBtn.addEventListener('click', () => {
+    fsGameBtn.addEventListener('click', () => {
       if (!document.fullscreenElement) {
-        wrapper.requestFullscreen().catch(e => console.log(e));
+        gameWrapper.requestFullscreen().catch(e => console.log(e));
       } else {
         document.exitFullscreen();
       }
     });
 
-    document.addEventListener('fullscreenchange', () => {
-      fsBtn.innerHTML = document.fullscreenElement ? '❐' : '⛶';
+    // DuckDuckGo Search Modal Logic
+    const ddgForm = document.getElementById('ddg-search-form');
+    const ddgQuery = document.getElementById('ddg-query');
+    const ddgModal = document.getElementById('ddg-modal');
+    const ddgIframe = document.getElementById('ddg-iframe');
+    const closeDdg = document.getElementById('close-ddg');
+
+    ddgForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let query = ddgQuery.value.trim();
+      if (!query) return;
+
+      const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+      ddgIframe.src = searchUrl;
+      ddgModal.classList.add('active');
+      document.body.classList.add('modal-open');
+      ddgQuery.value = '';
+    });
+
+    closeDdg.addEventListener('click', () => {
+      ddgModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+      ddgIframe.src = '';
     });
   </script>
 </body>
