@@ -1,33 +1,252 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="keywords" content="front-end web developer, unblocked, games, google sites, unblocked games mom, ublocked, code, coding, programmer, development, javascript, jquery, bootstrap, sass, less, git" />
-    <meta property="og:title" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta property="og:site_name" content="3kh0.github.io" />
-    <meta property="og:description" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta name="description" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta name="author" content="3kh0" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>3kh0 lite</title>
-  </head>
-  <body style="background-color: #121212; color: #ffffff; font-family: sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-    <h1 style="font-size: 3em; text-align: center;">
-      3kh0 lite
-    </h1>
-    <span id="subtitle" style="font-size: 1.5em;">...</span>
-    <p style="text-align: center; max-width: 600px; margin: 20px auto;">
-      Welcome to 3kh0 lite, a lightweight, lightning fast, and simple game site.<br />
-      <a href="/projects.html" style="text-decoration: none;"><button style="cursor: pointer; background-color: #22c55e; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 20px; margin-top: 20px;">Start playing!</button></a><br />
-      <br />
-      <a href="/misc.html" style="text-decoration: none;"><button style="cursor: pointer; background-color: #b625cc; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 20px; margin-top: 5px;">Tools and settings</button></a>
-    </p>
-    <p style="text-align: center; max-width: 600px; margin: 20px auto;">
-        &copy; 3kh0, 2024. All rights reserved. You are welcome to use and/or duplicate material from the <a href="https://github.com/3kh0/3kh0-lite" style="color: #22c55e;">GitHub repository</a> with proper credit to 3kh0.<br /><br />
-        Contact Echo at <a href="mailto:echo-the-coder@tuta.io" style="color: #22c55e;">echo-the-coder@tuta.io</a>.
-    </p>
-    <script src="/js/main.js"></script>
-    <script src="/js/subtitle.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KRYOXI</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --gray: #aaaaaa;
+      --darkgray: #111111;
+      --accent: #dddddd;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom, transparent 0px, rgba(255,255,255,0.02) 1px, transparent 2px);
+      pointer-events: none;
+      z-index: 9999;
+      animation: scan 5s linear infinite;
+    }
+    @keyframes scan { 0% { transform: translateY(0); } 100% { transform: translateY(100px); } }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.9);
+      border-bottom: 1px solid var(--accent);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 2.2rem;
+      letter-spacing: 6px;
+      font-weight: bold;
+    }
+    .logo span { color: var(--accent); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+    .hero h1 {
+      font-size: clamp(4rem, 12vw, 8rem);
+      letter-spacing: 15px;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+    @keyframes glow { from { text-shadow: 0 0 30px var(--accent); } to { text-shadow: 0 0 80px #fff, 0 0 120px var(--accent); } }
+    .tagline { font-size: 1.6rem; color: var(--gray); margin: 1.5rem 0 3rem; letter-spacing: 4px; }
+
+    .library {
+      padding: 100px 5% 150px;
+    }
+    .library h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 60px;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--darkgray);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 60px rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: grayscale(90%) contrast(1.1);
+      transition: filter 0.5s;
+    }
+    .card:hover img { filter: grayscale(20%) contrast(1.3); }
+    .card h3 {
+      padding: 1.2rem 1rem 0.5rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .card a {
+      display: block;
+      padding: 1rem;
+      background: var(--accent);
+      color: #000;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+    .card a:hover { background: #fff; }
+
+    footer {
+      text-align: center;
+      padding: 3rem;
+      border-top: 1px solid var(--accent);
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    #particles { position: fixed; inset: 0; z-index: -1; opacity: 0.12; pointer-events: none; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">KRYO<span>XI</span></div>
+  </nav>
+
+  <section class="hero">
+    <h1>KRYOXI</h1>
+    <p class="tagline">CORE UNLOCKED • SYSTEMS NOMINAL</p>
+  </section>
+
+  <section class="library">
+    <h2>GAME NODES</h2>
+    <div class="grid">
+
+      <!-- ================== YOUR GAMES HERE ================== -->
+      <!-- Replace folder names, titles, and placeholder images with yours -->
+      <!-- Example: if you have /projects/slope/ with index.html → use projects/slope/ -->
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x300/111/aaa?text=SLOPE" alt="Slope">
+        <h3>SLOPE</h3>
+        <a href="projects/slope/" target="_self">ENTER NODE</a>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x300/111/aaa?text=RETRO+BOWL" alt="Retro Bowl">
+        <h3>RETRO BOWL</h3>
+        <a href="projects/retro-bowl/" target="_self">ENTER NODE</a>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x300/111/aaa?text=COOKIE+CLICKER" alt="Cookie Clicker">
+        <h3>COOKIE CLICKER</h3>
+        <a href="projects/cookie-clicker/" target="_self">ENTER NODE</a>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x300/111/aaa?text=1V1.LOL" alt="1v1.lol">
+        <h3>1V1.LOL</h3>
+        <a href="projects/1v1-lol/" target="_self">ENTER NODE</a>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x300/111/aaa?text=RUN+3" alt="Run 3">
+        <h3>RUN 3</h3>
+        <a href="projects/run-3/" target="_self">ENTER NODE</a>
+      </div>
+
+      <!-- Add more cards like this for EVERY folder you added in /projects/ -->
+      <!-- <div class="card">
+        <img src="https://via.placeholder.com/600x300/111/aaa?text=YOURGAME" alt="Your Game">
+        <h3>YOUR GAME NAME</h3>
+        <a href="projects/your-folder-name/" target="_self">ENTER NODE</a>
+      </div> -->
+
+    </div>
+  </section>
+
+  <footer>
+    KRYOXI • ALL CORE PROTOCOLS ACTIVE • 2026
+  </footer>
+
+  <!-- Particle canvas (keep for cyber vibe) -->
+  <canvas id="particles"></canvas>
+
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.speedX = Math.random() * 0.4 - 0.2;
+        this.speedY = Math.random() * 0.4 - 0.2;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particlesArray = [];
+      for (let i = 0; i < 100; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+
+    init();
+    animate();
+  </script>
+</body>
 </html>
