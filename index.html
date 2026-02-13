@@ -67,7 +67,6 @@
     @keyframes glow { from { text-shadow: 0 0 30px var(--accent); } to { text-shadow: 0 0 80px #fff, 0 0 120px var(--accent); } }
     .tagline { font-size: 1.6rem; color: var(--gray); margin: 1.5rem 0 3rem; letter-spacing: 4px; }
 
-    /* DuckDuckGo Search Section */
     .search-section {
       padding: 80px 5%;
       text-align: center;
@@ -156,8 +155,7 @@
       text-transform: capitalize;
     }
 
-    /* Modal (shared styles for game & search) */
-    .modal {
+    #game-modal {
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.98);
@@ -167,7 +165,7 @@
       justify-content: center;
       flex-direction: column;
     }
-    .modal.active { display: flex; }
+    #game-modal.active { display: flex; }
     .modal-header {
       position: absolute;
       top: 15px;
@@ -233,10 +231,9 @@
     <p class="tagline">CORE UNLOCKED • ALL NODES ACTIVE</p>
   </section>
 
-  <!-- DuckDuckGo Proxy Search -->
   <section class="search-section">
     <h2>QUICK PROXY SEARCH</h2>
-    <p>Type anything → instant DuckDuckGo results (fast & private)</p>
+    <p>Type anything → opens DuckDuckGo results in new tab (fast & private)</p>
     <form id="ddg-search-form">
       <input type="text" id="ddg-query" placeholder="Search DuckDuckGo..." autocomplete="off">
       <button type="submit">SEARCH</button>
@@ -976,23 +973,13 @@
   </section>
 
   <!-- Game Modal -->
-  <div id="game-modal" class="modal">
+  <div id="game-modal">
     <div class="modal-header">
       <button class="modal-btn" id="close-modal" title="Close">✕</button>
       <button class="modal-btn" id="toggle-fullscreen" title="Toggle Fullscreen">⛶</button>
     </div>
     <div class="modal-wrapper">
       <iframe id="game-iframe" allowfullscreen allow="fullscreen"></iframe>
-    </div>
-  </div>
-
-  <!-- DuckDuckGo Search Modal -->
-  <div id="ddg-modal" class="modal">
-    <div class="modal-header">
-      <button class="modal-btn" id="close-ddg" title="Close">✕</button>
-    </div>
-    <div class="modal-wrapper">
-      <iframe id="ddg-iframe" allowfullscreen allow="fullscreen"></iframe>
     </div>
   </div>
 
@@ -1077,12 +1064,9 @@
       }
     });
 
-    // DuckDuckGo Search Modal Logic
+    // DuckDuckGo Search - Opens in new tab
     const ddgForm = document.getElementById('ddg-search-form');
     const ddgQuery = document.getElementById('ddg-query');
-    const ddgModal = document.getElementById('ddg-modal');
-    const ddgIframe = document.getElementById('ddg-iframe');
-    const closeDdg = document.getElementById('close-ddg');
 
     ddgForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1090,16 +1074,8 @@
       if (!query) return;
 
       const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
-      ddgIframe.src = searchUrl;
-      ddgModal.classList.add('active');
-      document.body.classList.add('modal-open');
+      window.open(searchUrl, '_blank');
       ddgQuery.value = '';
-    });
-
-    closeDdg.addEventListener('click', () => {
-      ddgModal.classList.remove('active');
-      document.body.classList.remove('modal-open');
-      ddgIframe.src = '';
     });
   </script>
 </body>
